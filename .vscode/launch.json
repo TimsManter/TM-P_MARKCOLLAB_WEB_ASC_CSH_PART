@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/TM-P_MARKCOLLAB_WEB_ASC_CSH_PART.dll",
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/MarkCollab.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
