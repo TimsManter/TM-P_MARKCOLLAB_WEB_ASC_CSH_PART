@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TM_P_MARKCOLLAB_WEB_ASC_CSH_PART.Controllers
+namespace MarkCollab.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller

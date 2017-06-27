@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace TM_P_MARKCOLLAB_WEB_ASC_CSH_PART
+namespace MarkCollab
 {
     public class Startup
     {

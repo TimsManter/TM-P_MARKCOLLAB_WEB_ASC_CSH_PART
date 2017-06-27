@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 
-namespace TM_P_MARKCOLLAB_WEB_ASC_CSH_PART
+namespace MarkCollab
 {
     public class Program
     {
