@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MarkCollab.Models
 {
-  public class Role
+  public class Role : IdentityRole
   {
-    public int Id { get; set; }
-    public string Name { get; set; }
+    
   }
 }
