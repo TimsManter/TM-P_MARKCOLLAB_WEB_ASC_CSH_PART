@@ -20,7 +20,7 @@ namespace MarkCollab.Controllers {
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetSingleAsync(int id) {
-      var doc = await _context.Documents.SingleOrDefaultAsync();
+      var doc = await _context.Documents.SingleOrDefaultAsync(d => d.Id == id);
       if (doc == null) return NotFound();
       else return Ok(doc);
 
