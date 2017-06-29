@@ -17,5 +17,12 @@ namespace MarkCollab.Controllers {
     public async Task<IEnumerable<Document>> GetAllAsync() {
       return await _context.Documents.ToListAsync();
     }
+
+    [HttpPost("{title}")]
+    public async void AddNew(string title) {
+      var doc = new Document(title);
+      _context.Documents.Add(doc);
+      await _context.SaveChangesAsync();
+    }
   }
 }
