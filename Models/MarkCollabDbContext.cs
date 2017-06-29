@@ -1,16 +1,11 @@
 using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace MarkCollab.Models {
-  public class MarkCollabDbContext : DbContext {
-    public DbSet<User> Users { get; set; }
-    public DbSet<Role> Roles { get; set; }
+  public class MarkCollabDbContext : IdentityDbContext<User> {
     public DbSet<Document> Documents { get; set; }
     public DbSet<Token> Tokens { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder) {
-      modelBuilder.Entity<User>().HasKey(e => e.Id);
-    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
       optionsBuilder.UseSqlite("Data Source=markcollab.db");
