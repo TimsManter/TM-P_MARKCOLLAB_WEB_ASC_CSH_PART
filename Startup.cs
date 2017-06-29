@@ -35,7 +35,9 @@ namespace MarkCollab
 
       services.AddIdentity<User, Role>()
         .AddEntityFrameworkStores<MarkCollabDbContext, int>();
-      services.AddMvc();
+      services.AddMvc(options => {
+        options.InputFormatters.Add(new TextPlainInputFormatter());
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
