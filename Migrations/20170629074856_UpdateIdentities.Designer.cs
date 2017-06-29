@@ -8,9 +8,10 @@ using MarkCollab.Models;
 namespace TMP_MARKCOLLAB_WEB_ASC_CSH_PART.Migrations
 {
     [DbContext(typeof(MarkCollabDbContext))]
-    partial class MarkCollabDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170629074856_UpdateIdentities")]
+    partial class UpdateIdentities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
