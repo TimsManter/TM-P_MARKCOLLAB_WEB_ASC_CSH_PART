@@ -18,7 +18,7 @@ namespace MarkCollab.Controllers {
       return await _context.Documents.ToListAsync();
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}", Name="GetSingleDoc")]
     public async Task<IActionResult> GetSingleAsync(int id) {
       var doc = await _context.Documents.SingleOrDefaultAsync(d => d.Id == id);
       if (doc == null) return NotFound();
@@ -31,12 +31,13 @@ namespace MarkCollab.Controllers {
       var doc = new Document(title);
       _context.Documents.Add(doc);
       if (await _context.SaveChangesAsync() > 0) {
-        return Created(Url.ToString(), doc);
+        return Created(Url.Action("GetSingleDoc", new {Id = doc.Id}), doc);
       }
       else return BadRequest();
     }
 
     [HttpPatch("{id}/content")]
+    [Consumes("text/plain")]
     public async Task<IActionResult> UpdateContentAsync(int id, [FromBody]string content) {
       var doc = await _context.Documents.SingleAsync(d => d.Id == id);
       if (doc == null) return NotFound();
