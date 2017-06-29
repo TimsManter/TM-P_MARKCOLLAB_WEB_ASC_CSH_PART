@@ -8,6 +8,10 @@ namespace MarkCollab.Models {
     public DbSet<Document> Documents { get; set; }
     public DbSet<Token> Tokens { get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder) {
+      modelBuilder.Entity<User>().HasKey(e => e.Id);
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
       optionsBuilder.UseSqlite("Data Source=markcollab.db");
     }
