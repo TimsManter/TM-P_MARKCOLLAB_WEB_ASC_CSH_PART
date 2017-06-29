@@ -2,7 +2,8 @@ using System;
 
 namespace MarkCollab.Models {
   public class Document {
-    public Document(string title) {
+    public Document() { }
+    public Document(string title) : this() {
       Title = title;
     }
 
