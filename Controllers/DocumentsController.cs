@@ -18,6 +18,14 @@ namespace MarkCollab.Controllers {
       return await _context.Documents.ToListAsync();
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetSingleAsync() {
+      var doc = await _context.Documents.SingleOrDefaultAsync();
+      if (doc == null) return NotFound();
+      else return Ok(doc);
+
+    }
+
     [HttpPost("{title}")]
     public async Task<IActionResult> AddNewAsync(string title) {
       var doc = new Document(title);
@@ -28,12 +36,22 @@ namespace MarkCollab.Controllers {
       else return BadRequest();
     }
 
+    [HttpPatch("{id}/content")]
+    public async Task<IActionResult> UpdateContentAsync(int id, [FromBody]string content) {
+      var doc = await _context.Documents.SingleAsync(d => d.Id == id);
+      if (doc == null) return NotFound();
+      if (content == null) return BadRequest();
+      doc.Content = content;
+      await _context.SaveChangesAsync();
+      return NoContent();
+    }
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAsync(int id) {
-      var doc = _context.Documents.SingleOrDefaultAsync(d => d.Id == id);
+      var doc = await _context.Documents.SingleOrDefaultAsync(d => d.Id == id);
       if (doc == null) return NotFound();
-      _context.Documents.Remove(await doc);
-      _context.SaveChanges();
+      _context.Documents.Remove(doc);
+      await _context.SaveChangesAsync();
       return NoContent();
     }
   }
