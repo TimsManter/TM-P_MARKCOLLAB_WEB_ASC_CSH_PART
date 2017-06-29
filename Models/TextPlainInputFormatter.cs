@@ -3,7 +3,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Formatters;
 
-namespace Mvc.Formatters
+namespace MarkCollab.Models
 {
   public class TextPlainInputFormatter : TextInputFormatter
   {
