@@ -28,6 +28,16 @@
                 "--force"
             ],
             "suppressTaskName": true
+        },
+        {
+            "taskName": "removemig",
+            "args": [
+                "ef",
+                "migrations",
+                "remove",
+                "--force"
+            ],
+            "suppressTaskName": true
         }
     ]
 }
