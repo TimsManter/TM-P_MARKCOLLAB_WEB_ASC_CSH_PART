@@ -19,10 +19,13 @@ namespace MarkCollab.Controllers {
     }
 
     [HttpPost("{title}")]
-    public async void AddNew(string title) {
+    public async Task<IActionResult> AddNew(string title) {
       var doc = new Document(title);
       _context.Documents.Add(doc);
-      await _context.SaveChangesAsync();
+      if (await _context.SaveChangesAsync() > 0) {
+        return Created(Url.ToString(), doc);
+      }
+      else return BadRequest();
     }
   }
 }
