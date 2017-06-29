@@ -18,8 +18,8 @@ namespace MarkCollab.Controllers {
       return await _context.Documents.ToListAsync();
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetSingleAsync() {
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetSingleAsync(int id) {
       var doc = await _context.Documents.SingleOrDefaultAsync();
       if (doc == null) return NotFound();
       else return Ok(doc);
