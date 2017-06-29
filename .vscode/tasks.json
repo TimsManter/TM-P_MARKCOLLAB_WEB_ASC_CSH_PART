@@ -15,8 +15,7 @@
             "args": [
                 "ef",
                 "database",
-                "update",
-                "--force"
+                "update"
             ],
             "suppressTaskName": true
         },
