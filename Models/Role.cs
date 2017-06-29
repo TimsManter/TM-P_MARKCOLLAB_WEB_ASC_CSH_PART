@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MarkCollab.Models
 {
-  public class Role : IdentityRole
+  public class Role : IdentityRole<int>
   {
   }
 }
