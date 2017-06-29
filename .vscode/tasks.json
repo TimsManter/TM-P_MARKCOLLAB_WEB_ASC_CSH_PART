@@ -1,8 +1,6 @@
 {
     "version": "0.1.0",
     "command": "dotnet",
-    "isShellCommand": true,
-    "args": [],
     "tasks": [
         {
             "taskName": "build",
@@ -15,8 +13,22 @@
         {
             "taskName": "dbupdate",
             "args": [
-                "ef database update"
-            ]
+                "ef",
+                "database",
+                "update",
+                "--force"
+            ],
+            "suppressTaskName": true
+        },
+        {
+            "taskName": "dbdrop",
+            "args": [
+                "ef",
+                "database",
+                "drop",
+                "--force"
+            ],
+            "suppressTaskName": true
         }
     ]
 }
