@@ -14,8 +14,8 @@ namespace MarkCollab.Controllers {
     }
 
     [HttpGet]
-    public async Task<IEnumerable<Document>> GetAllAsync() {
-      return await _context.Documents.ToListAsync();
+    public async Task<IActionResult> GetAllAsync() {
+      return Ok(await _context.Documents.ToListAsync());
     }
 
     [HttpGet("{id}", Name="GetSingleDoc")]
