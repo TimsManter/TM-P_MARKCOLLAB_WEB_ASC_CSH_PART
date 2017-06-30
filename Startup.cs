@@ -46,7 +46,10 @@ namespace MarkCollab
     {
       loggerFactory.AddConsole(Configuration.GetSection("Logging"));
       loggerFactory.AddDebug();
-      if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
+      if (env.IsDevelopment()) {
+        app.UseDeveloperExceptionPage();
+        app.UseDatabaseErrorPage();
+      }
 
       app.UseMvc();
     }
