@@ -44,7 +44,7 @@ namespace MarkCollab.Controllers {
       if (content == null) return BadRequest();
       doc.Content = content;
       await _context.SaveChangesAsync();
-      return NoContent();
+      return await GetSingleAsync(id);
     }
 
     [HttpDelete("{id}")]
