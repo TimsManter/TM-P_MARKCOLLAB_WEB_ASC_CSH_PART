@@ -34,7 +34,8 @@ namespace MarkCollab
         options.UseSqlite("Data Source=markcollab.db"));
 
       services.AddIdentity<User, Role>()
-        .AddEntityFrameworkStores<MarkCollabDbContext, int>();
+        .AddEntityFrameworkStores<MarkCollabDbContext, int>()
+        .AddDefaultTokenProviders();
       services.AddMvc(options => {
         options.InputFormatters.Add(new TextPlainInputFormatter());
       });
