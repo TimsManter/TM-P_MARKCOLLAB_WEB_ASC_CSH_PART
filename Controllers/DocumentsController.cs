@@ -31,7 +31,7 @@ namespace MarkCollab.Controllers {
       var doc = new Document(title);
       _context.Documents.Add(doc);
       if (await _context.SaveChangesAsync() > 0) {
-        return Created(Url.Action("GetSingleDoc", new {Id = doc.Id}), doc);
+        return Created(Url.Action("GetSingleDoc", new {id = doc.Id}), doc);
       }
       else return BadRequest();
     }
@@ -54,6 +54,11 @@ namespace MarkCollab.Controllers {
       _context.Documents.Remove(doc);
       await _context.SaveChangesAsync();
       return NoContent();
+    }
+
+    [HttpGet("test")]
+    public async Task<IActionResult> TestAsync() {
+      return Ok(Url.Action("GetSingleDoc", new { id = 2 }));
     }
   }
 }
