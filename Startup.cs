@@ -51,7 +51,9 @@ namespace MarkCollab
         app.UseDatabaseErrorPage();
       }
       app.UseCors(corsBuilder => {
-        corsBuilder.AllowAnyOrigin();
+        corsBuilder.AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader();
       });
       app.UseMvc();
     }
