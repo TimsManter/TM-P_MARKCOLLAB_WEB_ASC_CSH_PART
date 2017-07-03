@@ -35,6 +35,7 @@ namespace MarkCollab
       services.AddIdentity<User, Role>()
         .AddEntityFrameworkStores<MarkCollabDbContext>()
         .AddDefaultTokenProviders();
+      services.AddCors();
       services.AddMvc(options => {
         options.InputFormatters.Add(new TextPlainInputFormatter());
       });
@@ -49,7 +50,9 @@ namespace MarkCollab
         app.UseDeveloperExceptionPage();
         app.UseDatabaseErrorPage();
       }
-
+      app.UseCors(corsBuilder => {
+        corsBuilder.AllowAnyOrigin();
+      });
       app.UseMvc();
     }
   }
