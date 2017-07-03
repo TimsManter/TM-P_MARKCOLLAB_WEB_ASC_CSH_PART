@@ -30,11 +30,10 @@ namespace MarkCollab
     public void ConfigureServices(IServiceCollection services)
     {
       // Add framework services.
-      services.AddDbContext<MarkCollabDbContext>(options =>
-        options.UseSqlite("Data Source=markcollab.db"));
+      services.AddDbContext<MarkCollabDbContext>();
 
       services.AddIdentity<User, Role>()
-        .AddEntityFrameworkStores<MarkCollabDbContext, int>()
+        .AddEntityFrameworkStores<MarkCollabDbContext>()
         .AddDefaultTokenProviders();
       services.AddMvc(options => {
         options.InputFormatters.Add(new TextPlainInputFormatter());
