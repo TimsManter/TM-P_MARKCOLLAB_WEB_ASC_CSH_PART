@@ -47,6 +47,17 @@ namespace MarkCollab.Controllers {
       return await GetSingleAsync(id);
     }
 
+    [HttpPatch("{id}/title")]
+    [Consumes("text/plain")]
+    public async Task<IActionResult> UpdateTitleAsync(int id, [FromBody]string title) {
+      var doc = await _context.Documents.SingleAsync(d => d.Id == id);
+      if (doc == null) return NotFound();
+      if (title == null) return BadRequest();
+      doc.Title = title;
+      await _context.SaveChangesAsync();
+      return await GetSingleAsync(id);
+    }
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAsync(int id) {
       var doc = await _context.Documents.SingleOrDefaultAsync(d => d.Id == id);
