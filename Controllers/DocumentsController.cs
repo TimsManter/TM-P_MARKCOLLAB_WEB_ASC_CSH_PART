@@ -26,8 +26,9 @@ namespace MarkCollab.Controllers {
 
     }
 
-    [HttpPost("{title}")]
-    public async Task<IActionResult> AddNewAsync(string title) {
+    [HttpPost()]
+    [Consumes("text/plain")]
+    public async Task<IActionResult> AddNewAsync([FromBody] string title) {
       var doc = new Document(title);
       _context.Documents.Add(doc);
       if (await _context.SaveChangesAsync() > 0) {
