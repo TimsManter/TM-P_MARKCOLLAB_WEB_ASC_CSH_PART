@@ -56,6 +56,12 @@ namespace MarkCollab
           .AllowAnyHeader();
       });
       app.UseMvc();
+
+      var serviceScopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>();
+      using (var serviceScope = serviceScopeFactory.CreateScope()) {
+        var dbContext = serviceScope.ServiceProvider.GetService<MarkCollabDbContext>();
+        dbContext.Database.EnsureCreated();
+      }
     }
   }
 }
