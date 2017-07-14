@@ -26,18 +26,19 @@ GET {root}/api/docs
 GET {root}/api/docs/{id}
 ```
 
-### Create new document with {title}
+### Create new document with title in body
 ```http
-POST {root}/api/docs/{title}
+POST {root}/api/docs
 ```
+> Note: Remember to add `Content-Type: text/plain` header.
 
-### Update document content
+### Update document content in body
 ```http
 PATCH {root}/api/docs/{id}/content
 ```
 > Note: Remember to add `Content-Type: text/plain` header.
 
-### Update document title
+### Update document title in body
 ```http
 PATCH {root}/api/docs/{id}/title
 ```
