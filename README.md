@@ -1,3 +1,7 @@
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Repo moved here 👉 https://github.com/SelfRef/mark-collab
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 # MarkCollab Editor
 
 * @Author: TimsManter
